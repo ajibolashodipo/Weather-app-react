@@ -72,17 +72,23 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
     // )
     // console.log(res)
     // JSON BIN
-    // let res = await axios.get(
-    //   `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5effd2fe7f16b71d48aacc9a`,
-    //   {
-    //     headers: { Accept: "application/json" }
-    //   }
-    // )
-    // console.log(res)
+    let res = await axios.get(
+      `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5effd2fe7f16b71d48aacc9a`,
+      {
+        headers: { Accept: "application/json" }
+      }
+    )
+
+    this.setState({
+      weatherDataCurrent: res.data.current,
+      weatherDataHourly: res.data.hourly,
+      weatherDataDaily: res.data.daily
+    })
+    console.log(res.data)
   }
   componentDidMount() {
-    this.getDefaultIP()
-    this.getWeatherData()
+    // this.getDefaultIP()
+    // this.getWeatherData()
   }
 
   render() {
