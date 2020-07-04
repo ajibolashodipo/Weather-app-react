@@ -2,6 +2,7 @@ import logo from "./logo.svg"
 import axios from "axios"
 import "./App.css"
 import Search from "./Search"
+import Main from "./Main"
 
 import React, { Component } from "react"
 
@@ -65,7 +66,7 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
 
   getWeatherData = async () => {
     // let res = await axios.get(
-    //   `https://corsanywhere-jibola.herokuapp.com/api.openweathermap.org/data/2.5/onecall?lat=6.6&lon=6.6&%20exclude={part}&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
+    //   `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
     //   {
     //     headers: { Accept: "application/json" }
     //   }
@@ -73,12 +74,11 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
     // console.log(res)
     // JSON BIN
     let res = await axios.get(
-      `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5effd2fe7f16b71d48aacc9a`,
+      `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5f00dff17f16b71d48ab3a3d`,
       {
         headers: { Accept: "application/json" }
       }
     )
-
     this.setState({
       weatherDataCurrent: res.data.current,
       weatherDataHourly: res.data.hourly,
@@ -96,6 +96,7 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
       <div>
         <h1>Weather App</h1>
         <Search getLocation={this.getLocation} />
+        <Main state={this.state} />
       </div>
     )
   }
