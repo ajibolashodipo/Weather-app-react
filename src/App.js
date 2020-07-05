@@ -1,4 +1,3 @@
-import logo from "./logo.svg"
 import axios from "axios"
 import "./App.css"
 import Search from "./Search"
@@ -9,6 +8,7 @@ import React, { Component } from "react"
 class App extends Component {
   state = {
     loading: false,
+    showData: false,
     weatherDataCurrent: {},
     weatherDataHourly: [],
     weatherDataDaily: [],
@@ -37,7 +37,8 @@ class App extends Component {
     const extractKey = Object.keys(data)
     this.setState(
       {
-        [extractKey[0]]: data[extractKey[0]]
+        [extractKey[0]]: data[extractKey[0]],
+        loading: true
       },
       () => {
         this.getCoordinates()
@@ -79,11 +80,16 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
         headers: { Accept: "application/json" }
       }
     )
-    this.setState({
-      weatherDataCurrent: res.data.current,
-      weatherDataHourly: res.data.hourly,
-      weatherDataDaily: res.data.daily
-    })
+    this.setState(
+      {
+        weatherDataCurrent: res.data.current,
+        weatherDataHourly: res.data.hourly,
+        weatherDataDaily: res.data.daily
+      },
+      () => {
+        this.setState({ loading: false, showData: true })
+      }
+    )
     console.log(res.data)
   }
   componentDidMount() {
