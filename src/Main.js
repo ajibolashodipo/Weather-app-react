@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import HourlyForecast from "./HourlyForecast"
+import DailyForecast from "./DailyForecast"
 import "./Main.css"
 
 export class Main extends Component {
@@ -21,6 +22,19 @@ export class Main extends Component {
           icon={hour.weather[0].icon}
           desc={hour.weather[0].main}
           temp={hour.temp}
+        />
+      ) : null
+    )
+
+    const byTheDay = daily.map((day, index) =>
+      index > 0 ? (
+        <DailyForecast
+          time={day.dt}
+          key={index}
+          icon={day.weather[0].icon}
+          min={day.temp.min}
+          max={day.temp.max}
+          desc={day.weather[0].main}
         />
       ) : null
     )
@@ -53,6 +67,7 @@ export class Main extends Component {
           </div>
         )}
         <div className="">{byTheHour}</div>
+        <div className="">{byTheDay}</div>
       </div>
     )
   }
