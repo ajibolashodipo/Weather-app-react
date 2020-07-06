@@ -153,12 +153,10 @@ class App extends Component {
   }
 
   render() {
-  
-
     return (
       <div className="body-container">
         <div style={{}} className="main-container">
-          <h1>Weather App</h1>
+          <h1>Weather Wizard</h1>
           <Search getLocation={this.getLocation} />
           <Main state={this.state} />
         </div>
