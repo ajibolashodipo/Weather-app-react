@@ -18,14 +18,16 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Search">
         <form action="" onSubmit={this.handleSubmit}>
           <label htmlFor="searchParam">Enter City</label>
           <input
             type="text"
             id="searchParam"
+            placeholder="Lagos, Nigeria"
             onChange={this.handleChange}
             value={this.state.searchParam}
+            className="Search-form"
           />
           <button>Search</button>
         </form>

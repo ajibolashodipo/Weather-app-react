@@ -2,6 +2,9 @@ import axios from "axios"
 import "./App.css"
 import Search from "./Search"
 import Main from "./Main"
+import moment from "moment"
+
+import image from "./img/4.jpg"
 
 import React, { Component } from "react"
 
@@ -38,7 +41,8 @@ class App extends Component {
     this.setState(
       {
         [extractKey[0]]: data[extractKey[0]],
-        loading: true
+        loading: true,
+        showData: false
       },
       () => {
         this.getCoordinates()
@@ -88,6 +92,10 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
       },
       () => {
         this.setState({ loading: false, showData: true })
+        this.state.weatherDataHourly.map((hour) => {
+          console.log(moment(hour.dt).format("HH:mm:ss A"))
+          // console.log(hour.dt)
+        })
       }
     )
     console.log(res.data)
@@ -98,8 +106,16 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
   }
 
   render() {
+    const style = {
+      backgroundImage: `url(${image})`,
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed",
+      backgroundPosition: "center",
+      backgroundSize: "cover"
+    }
+
     return (
-      <div>
+      <div style={{}} className="main-container">
         <h1>Weather App</h1>
         <Search getLocation={this.getLocation} />
         <Main state={this.state} />

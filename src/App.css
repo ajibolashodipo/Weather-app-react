@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  color: white;
+  background-color: cornflowerblue;
+  /* color: var(--quartenary-bg-color); */
+}
+
+.main-container {
+  /* height: 100vh; */
+  /* background-color: bisque; */
+  text-align: center;
+  margin: 0 auto;
+  padding: 2%;
+}

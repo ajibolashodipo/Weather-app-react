@@ -13,7 +13,7 @@ export class HourlyForecast extends Component {
         />
         <p>{this.props.time}</p>
         <p>{this.props.desc}</p>
-        <p>{this.props.temp}</p>
+        <p>{this.props.temp} &#8451;</p>
       </div>
     )
   }

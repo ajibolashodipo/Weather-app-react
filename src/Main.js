@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import HourlyForecast from "./HourlyForecast"
 import DailyForecast from "./DailyForecast"
 import "./Main.css"
+import moment from "moment"
 
 export class Main extends Component {
   state = {
@@ -14,10 +15,19 @@ export class Main extends Component {
     const hourly = this.props.state.weatherDataHourly
     const daily = this.props.state.weatherDataDaily
 
+    if (state.loading) {
+      return (
+        <div className="">
+          <h1>Loading...</h1>
+        </div>
+      )
+    }
+
     const byTheHour = hourly.map((hour, index) =>
       index < 6 ? (
         <HourlyForecast
-          time={hour.dt}
+          time={moment(hour.dt * 1000).format("HH:mm ")}
+          // time={hour.dt}
           key={index}
           icon={hour.weather[0].icon}
           desc={hour.weather[0].main}
@@ -29,7 +39,7 @@ export class Main extends Component {
     const byTheDay = daily.map((day, index) =>
       index > 0 ? (
         <DailyForecast
-          time={day.dt}
+          time={moment(day.dt * 1000).format("ddd, MMM D")}
           key={index}
           icon={day.weather[0].icon}
           min={day.temp.min}
@@ -39,35 +49,31 @@ export class Main extends Component {
       ) : null
     )
 
-    if (state.loading) {
-      return (
-        <div className="">
-          <h1>Loading...</h1>
-        </div>
-      )
-    }
-
     return (
-      <div>
+      <div className="Main">
         {this.props.state.showData && (
           <div className="">
-            <h3>Today</h3>
-            <p>{current.temp} degrees</p>
-            <img
-              src={`http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`}
-              alt=""
-            />
-            <p>Feels like {current.feels_like}</p>
-            <p>{current.weather[0].description} </p>
-            <p>{state.geoCodeLocation}</p>
-            <p>Updated : {current.dt}</p>
-            <p>
-              Sunrise/Sunset :{current.sunrise}/{current.sunset}
-            </p>
+            <div className="Current">
+              <h3>Today</h3>
+              <p>{current.temp} &#8451;</p>
+              <img
+                src={`http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`}
+                alt=""
+              />
+              <p>Feels like {current.feels_like} &#8451;</p>
+              <p>{current.weather[0].description} </p>
+              <p>{state.geoCodeLocation}</p>
+              <p>Updated : {moment(current.dt * 1000).format("HH:mm ")}</p>
+              <p>
+                Sunrise/Sunset :
+                {moment(current.sunrise * 1000).format("HH:mm ")}/
+                {moment(current.sunset * 1000).format("HH:mm ")}
+              </p>
+            </div>
+            <div className="Hourly">{byTheHour}</div>
+            <div className="Daily">{byTheDay}</div>
           </div>
         )}
-        <div className="">{byTheHour}</div>
-        <div className="">{byTheDay}</div>
       </div>
     )
   }
