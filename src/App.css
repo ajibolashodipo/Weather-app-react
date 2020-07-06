@@ -1,3 +1,12 @@
+:root {
+  --primary-bg-color: #584f84;
+  /* --primary-bg-color: #bd6ee6; */
+  --secondary-bg-color: #876a96;
+  --tertiary-bg-color: #d7c1e0;
+  --quartenary-bg-color: #edeff2;
+  --cinq-bg-color: #e6ae73;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,10 +29,21 @@ body {
   /* color: var(--quartenary-bg-color); */
 }
 
+.body-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: auto;
+  /* width: 100%; */
+
+  /* background-color: #b5b8e8; */
+}
+
 .main-container {
-  /* height: 100vh; */
-  /* background-color: bisque; */
+  width: 100%;
+  /* margin: 0 auto; */
+  flex: 1 0 auto; 
+  /* background-color: var(--primary-bg-color); */
   text-align: center;
-  margin: 0 auto;
-  padding: 2%;
+  transform: scale(0.88);
 }

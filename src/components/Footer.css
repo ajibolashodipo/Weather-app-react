@@ -1,0 +1,38 @@
+.footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: var(--quartenary-bg-color);
+  height: 7vh;
+  background-color: var(--primary-bg-color);
+  font-size: 1.2rem;
+}
+
+.footer .social-media {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.footer .heart {
+  color: var(--cinq-bg-color);
+  /* background-color: red; */
+  /* color: red; */
+}
+
+.footer .social-media .icon {
+  margin-left: 2rem;
+  color: var(--quartenary-bg-color);
+  /* color: black; */
+}
+
+/* @media only screen and (max-width: 576px) {
+  .footer {
+    font-size: 1rem;
+  }
+
+  .footer .social-media .fab {
+    margin-left: 1rem;
+    color: var(--quartenary-bg-color);
+  }
+} */

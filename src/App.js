@@ -2,6 +2,7 @@ import axios from "axios"
 import "./App.css"
 import Search from "./components/Search"
 import Main from "./components/Main"
+import Footer from "./components/Footer"
 
 // import image from "./img/4.jpg"
 
@@ -161,10 +162,13 @@ class App extends Component {
     // }
 
     return (
-      <div style={{}} className="main-container">
-        <h1>Weather App</h1>
-        <Search getLocation={this.getLocation} />
-        <Main state={this.state} />
+      <div className="body-container">
+        <div style={{}} className="main-container">
+          <h1>Weather App</h1>
+          <Search getLocation={this.getLocation} />
+          <Main state={this.state} />
+        </div>
+        <Footer />
       </div>
     )
   }

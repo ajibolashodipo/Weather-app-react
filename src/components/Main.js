@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import HourlyForecast from "./HourlyForecast"
 import DailyForecast from "./DailyForecast"
 import CurrentForecast from "./CurrentForecast"
+import Loading from "./Loading"
 import "./Main.css"
 import moment from "moment"
 
@@ -17,22 +18,8 @@ export class Main extends Component {
     const daily = this.props.state.weatherDataDaily
 
     if (state.loading) {
-      return (
-        <div className="">
-          <h1>Loading...</h1>
-        </div>
-      )
+      return <Loading />
     }
-
-    // ;<div className="Main">
-    //   {this.props.state.showData && (
-    //     <div className="Grid-container">
-    //       <CurrentForecast current={current} state={state} />
-    //       {byTheHour}
-    //       {byTheDay}
-    //     </div>
-    //   )}
-    // </div>
 
     //for unfound locations
     if (state.searchErrorMessage.length) {
