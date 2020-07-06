@@ -16,6 +16,7 @@ body {
   height: 100%;
   color: white;
   background-color: cornflowerblue;
+  font-family: "Abel", sans-serif;
   /* color: var(--quartenary-bg-color); */
 }
 

@@ -10,7 +10,7 @@ export class DailyForecast extends Component {
         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="" />
         <p>{desc}</p>
         <p>
-          {min} &#8451;/ {max} &#8451;
+          {min} &#8451; / {max} &#8451;
         </p>
       </div>
     )

@@ -3,12 +3,8 @@
 }
 
 img {
-  /* margin: auto; */
-  /* height: 60px;
-  width: 60px; */
   text-align: center;
 }
-
 
 .Grid-container {
   margin: 5% auto;
@@ -16,7 +12,6 @@ img {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(12, minmax(50px, auto));
-  /* grid-template-rows: repeat(12, 50px); */
   row-gap: 10px;
   column-gap: 20px;
 
@@ -26,7 +21,6 @@ img {
   font-size: 1.2rem;
   text-align: center;
   color: white;
-  border-radius: 15px;
 
   /* overkill yeah. but i was pushed */
   display: grid;
@@ -36,10 +30,11 @@ img {
 }
 
 .Current {
-  background-color: coral;
-  background-color: grey;
-  border-radius: 10px;
+  /* background-color: grey; */
+  /* border-radius: 10px; */
   padding: 3% 5%;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
   /* margin: auto; */
 }
 .Current img {
@@ -49,8 +44,9 @@ img {
 .Hourly {
   /* background-color: cyan; */
   padding: 15%;
+  border-radius: 15px;
   margin: 25% 0;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   /* border-top: 1px solid white;
   border-bottom: 1px solid white; */
 }
@@ -94,6 +90,7 @@ img {
 }
 
 .Daily-grid-1 {
+  border-top: 1px solid white;
   grid-column: 1/11;
   grid-row: 6/7;
 }
