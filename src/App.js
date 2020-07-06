@@ -121,20 +121,20 @@ class App extends Component {
 
   getWeatherData = async () => {
     // JSON BIN
-    // let res = await axios.get(
-    //   `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5f00dff17f16b71d48ab3a3d`,
-    //   {
-    //     headers: { Accept: "application/json" }
-    //   }
-    // )
-
-    //regular api
     let res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
+      `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5f00dff17f16b71d48ab3a3d`,
       {
         headers: { Accept: "application/json" }
       }
     )
+
+    //regular api
+    // let res = await axios.get(
+    //   `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
+    //   {
+    //     headers: { Accept: "application/json" }
+    //   }
+    // )
 
     this.setState(
       {
@@ -153,13 +153,7 @@ class App extends Component {
   }
 
   render() {
-    // const style = {
-    //   backgroundImage: `url(${image})`,
-    //   backgroundRepeat: "no-repeat",
-    //   backgroundAttachment: "fixed",
-    //   backgroundPosition: "center",
-    //   backgroundSize: "cover"
-    // }
+  
 
     return (
       <div className="body-container">
