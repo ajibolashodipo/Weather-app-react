@@ -32,16 +32,18 @@ class Search extends Component {
     return (
       <div className="Search">
         <form action="" onSubmit={this.handleSubmit}>
-          <label htmlFor="searchParam">Location</label>
-          <input
-            type="text"
-            id="searchParam"
-            placeholder="Type in a location"
-            onChange={this.handleChange}
-            value={this.state.searchParam}
-            className="Search-form"
-          />
-          <button>Search</button>
+          <div className="form-inner-container">
+            <label htmlFor="searchParam">Location</label>
+            <input
+              type="text"
+              id="searchParam"
+              placeholder="Type in a location"
+              onChange={this.handleChange}
+              value={this.state.searchParam}
+              className="Search-form"
+            />
+            <button>Search</button>
+          </div>
         </form>
         <p className={this.state.errorMessage ? "alert-paragraph" : ""}>
           {this.state.errorMessage}

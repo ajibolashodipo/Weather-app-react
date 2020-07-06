@@ -7,11 +7,8 @@ export class Loading extends Component {
       <div className="Loading-container">
         <h1>Loading ...</h1>
         <div class="spinner-box">
-          <div class="configure-border-1">
-            <div class="configure-core"></div>
-          </div>
-          <div class="configure-border-2">
-            <div class="configure-core"></div>
+          <div class="circle-border">
+            <div class="circle-core"></div>
           </div>
         </div>
       </div>
