@@ -2,9 +2,8 @@ import axios from "axios"
 import "./App.css"
 import Search from "./Search"
 import Main from "./Main"
-import moment from "moment"
 
-import image from "./img/4.jpg"
+// import image from "./img/4.jpg"
 
 import React, { Component } from "react"
 
@@ -24,16 +23,38 @@ class App extends Component {
     onLoadLocation: "",
     defaultLatitude: 6.4474,
     defaultLongitude: 3.3903,
-    defaultLocation: "Lagos"
+    defaultLocation: "Lagos",
+    searchErrorMessage: ""
   }
 
   getDefaultIP = async () => {
     let res = await axios.get("http://ip-api.com/json")
-    this.setState({
-      onLoadLongitude: res.data.lon,
-      onLoadLatitude: res.data.lat,
-      onLoadLocation: res.data.regionName
-    })
+    try {
+      if (res && res.status === 200) {
+        this.setState(
+          {
+            geoCodeLongitude: res.data.lon,
+            geoCodeLatitude: res.data.lat,
+            geoCodeLocation: res.data.regionName
+          },
+          () => {
+            this.getPublicIPWeatherData()
+          }
+        )
+      }
+    } catch (error) {
+      //resort to defaults
+      this.setState(
+        {
+          geoCodeLongitude: this.state.defaultLongitude,
+          geoCodeLatitude: this.state.defaultLatitude,
+          geoCodeLocation: this.state.defaultLocation
+        },
+        () => {
+          this.getPublicIPWeatherData()
+        }
+      )
+    }
   }
 
   getLocation = (data) => {
@@ -41,6 +62,7 @@ class App extends Component {
     this.setState(
       {
         [extractKey[0]]: data[extractKey[0]],
+        searchErrorMessage: "",
         loading: true,
         showData: false
       },
@@ -52,38 +74,38 @@ class App extends Component {
 
   getCoordinates = async () => {
     let res = await axios.get(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/
-${encodeURIComponent(this.state.searchParam)}.json?access_token=${
-        process.env.REACT_APP_GEOCODE_API_KEY
-      }&limit=1`
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+        this.state.searchParam
+      )}.json?access_token=${process.env.REACT_APP_GEOCODE_API_KEY}&limit=1`
     )
-    this.setState(
-      {
-        geoCodeLatitude: res.data.features[0].center[1],
-        geoCodeLongitude: res.data.features[0].center[0],
-        geoCodeLocation: res.data.features[0].place_name
-      },
-      () => {
-        this.getWeatherData()
-      }
-    )
+    console.log(res)
+    if (res.data.features.length) {
+      this.setState(
+        {
+          geoCodeLatitude: res.data.features[0].center[1],
+          geoCodeLongitude: res.data.features[0].center[0],
+          geoCodeLocation: res.data.features[0].place_name
+        },
+        () => {
+          this.getWeatherData()
+        }
+      )
+    } else {
+      this.setState({
+        searchErrorMessage: `Oops! Weather data for "${this.state.searchParam}" could not be found. Please try another location `,
+        loading: false
+      })
+    }
   }
 
-  getWeatherData = async () => {
-    // let res = await axios.get(
-    //   `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
-    //   {
-    //     headers: { Accept: "application/json" }
-    //   }
-    // )
-    // console.log(res)
-    // JSON BIN
+  getPublicIPWeatherData = async () => {
     let res = await axios.get(
-      `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5f00dff17f16b71d48ab3a3d`,
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
       {
         headers: { Accept: "application/json" }
       }
     )
+
     this.setState(
       {
         weatherDataCurrent: res.data.current,
@@ -92,27 +114,51 @@ ${encodeURIComponent(this.state.searchParam)}.json?access_token=${
       },
       () => {
         this.setState({ loading: false, showData: true })
-        this.state.weatherDataHourly.map((hour) => {
-          console.log(moment(hour.dt).format("HH:mm:ss A"))
-          // console.log(hour.dt)
-        })
+      }
+    )
+  }
+
+  getWeatherData = async () => {
+    // JSON BIN
+    // let res = await axios.get(
+    //   `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5f00dff17f16b71d48ab3a3d`,
+    //   {
+    //     headers: { Accept: "application/json" }
+    //   }
+    // )
+
+    //regular api
+    let res = await axios.get(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
+      {
+        headers: { Accept: "application/json" }
+      }
+    )
+
+    this.setState(
+      {
+        weatherDataCurrent: res.data.current,
+        weatherDataHourly: res.data.hourly,
+        weatherDataDaily: res.data.daily
+      },
+      () => {
+        this.setState({ loading: false, showData: true })
       }
     )
     console.log(res.data)
   }
   componentDidMount() {
     // this.getDefaultIP()
-    // this.getWeatherData()
   }
 
   render() {
-    const style = {
-      backgroundImage: `url(${image})`,
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed",
-      backgroundPosition: "center",
-      backgroundSize: "cover"
-    }
+    // const style = {
+    //   backgroundImage: `url(${image})`,
+    //   backgroundRepeat: "no-repeat",
+    //   backgroundAttachment: "fixed",
+    //   backgroundPosition: "center",
+    //   backgroundSize: "cover"
+    // }
 
     return (
       <div style={{}} className="main-container">

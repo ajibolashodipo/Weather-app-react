@@ -24,6 +24,25 @@ export class Main extends Component {
       )
     }
 
+    // ;<div className="Main">
+    //   {this.props.state.showData && (
+    //     <div className="Grid-container">
+    //       <CurrentForecast current={current} state={state} />
+    //       {byTheHour}
+    //       {byTheDay}
+    //     </div>
+    //   )}
+    // </div>
+
+    //for unfound locations
+    if (state.searchErrorMessage.length) {
+      return (
+        <div className="">
+          <h2>{state.searchErrorMessage}</h2>
+        </div>
+      )
+    }
+
     const byTheHour = hourly.map((hour, index) =>
       index > 0 && index < 6 ? (
         <HourlyForecast

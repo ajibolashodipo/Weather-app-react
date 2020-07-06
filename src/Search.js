@@ -3,7 +3,8 @@ import "./Search.css"
 
 class Search extends Component {
   state = {
-    searchParam: ""
+    searchParam: "",
+    errorMessage: ""
   }
 
   handleChange = (e) => {
@@ -12,25 +13,39 @@ class Search extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    //Validate against empty query
+    if (!this.state.searchParam) {
+      this.setState({ errorMessage: "Please enter a location" }, () => {
+        setTimeout(() => {
+          this.setState({ errorMessage: "" })
+        }, 3000)
+      })
+      return
+    }
+
     this.props.getLocation(this.state)
-    this.setState({ searchParam: "" })
+
+    // this.setState({ searchParam: "" })
   }
 
   render() {
     return (
       <div className="Search">
         <form action="" onSubmit={this.handleSubmit}>
-          <label htmlFor="searchParam">Enter City</label>
+          <label htmlFor="searchParam">Location</label>
           <input
             type="text"
             id="searchParam"
-            placeholder="Lagos, Nigeria"
+            placeholder="Type in a location"
             onChange={this.handleChange}
             value={this.state.searchParam}
             className="Search-form"
           />
           <button>Search</button>
         </form>
+        <p className={this.state.errorMessage ? "alert-paragraph" : ""}>
+          {this.state.errorMessage}
+        </p>
       </div>
     )
   }

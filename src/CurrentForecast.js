@@ -19,7 +19,7 @@ export class CurrentForecast extends Component {
           {current.weather[0].description}{" "}
         </p>
         <h3>
-          <i class="fas fa-map-marker-alt"></i> {state.geoCodeLocation}
+          <i className="fas fa-map-marker-alt"></i> {state.geoCodeLocation}
         </h3>
         <p>Last updated : {moment(current.dt * 1000).format("HH:mm ")}</p>
       </div>
