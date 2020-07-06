@@ -13,7 +13,7 @@ export class HourlyForecast extends Component {
         />
 
         <p>{this.props.desc}</p>
-        <p>{this.props.temp} &#8451;</p>
+        <p>{Math.round(this.props.temp)} &#8451;</p>
       </div>
     )
   }
