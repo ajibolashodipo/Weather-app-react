@@ -45,6 +45,7 @@ class Search extends Component {
             <button>Search</button>
           </div>
         </form>
+        <p className="alert-empty-location">{this.state.errorMessage}</p>
       </div>
     )
   }

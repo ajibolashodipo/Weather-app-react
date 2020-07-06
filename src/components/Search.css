@@ -35,10 +35,19 @@ button:hover {
   color: white;
 }
 
-
 .form-inner-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.alert-empty-location {
+  color: #e84435;
+  /* width: 70%; */
+  padding: 1%;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }

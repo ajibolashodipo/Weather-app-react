@@ -7,8 +7,17 @@ export class Loading extends Component {
       <div className="Loading-container">
         <h1>Loading ...</h1>
         <div class="spinner-box">
-          <div class="circle-border">
-            <div class="circle-core"></div>
+          <div class="solar-system">
+            <div class="earth-orbit orbit">
+              <div class="planet earth"></div>
+              <div class="venus-orbit orbit">
+                <div class="planet venus"></div>
+                <div class="mercury-orbit orbit">
+                  <div class="planet mercury"></div>
+                  <div class="sun"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
