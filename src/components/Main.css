@@ -17,6 +17,23 @@ img {
 
   height: 100%;
 }
+
+.alert-paragraph {
+  color: white;
+  padding: 7.5%;
+  margin: 5% auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+
+  transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.alert-paragraph.more {
+  transform: scale(1);
+}
+
 .lone-grid-item {
   font-size: 1.2rem;
   text-align: center;

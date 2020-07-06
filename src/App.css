@@ -1,5 +1,5 @@
 :root {
-  --primary-bg-color: #584f84;
+  --primary-bg-color: #4f6352;
   /* --primary-bg-color: #bd6ee6; */
   --secondary-bg-color: #876a96;
   --tertiary-bg-color: #d7c1e0;
@@ -26,21 +26,13 @@ body {
   color: white;
   background-color: cornflowerblue;
   font-family: "Abel", sans-serif;
-  background-image: url("./img/1.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/1.jpg");
+
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-
-  /* color: var(--quartenary-bg-color); */
-
-  /* // const style = {
-    //   backgroundImage: `url(${image})`,
-    //   backgroundRepeat: "no-repeat",
-    //   backgroundAttachment: "fixed",
-    //   backgroundPosition: "center",
-    //   backgroundSize: "cover"
-    // } */
 }
 
 .body-container {

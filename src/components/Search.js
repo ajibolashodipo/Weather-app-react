@@ -45,9 +45,6 @@ class Search extends Component {
             <button>Search</button>
           </div>
         </form>
-        <p className={this.state.errorMessage ? "alert-paragraph" : ""}>
-          {this.state.errorMessage}
-        </p>
       </div>
     )
   }

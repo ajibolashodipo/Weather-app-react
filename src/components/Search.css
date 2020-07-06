@@ -31,17 +31,10 @@ button {
 
 button:hover {
   transform: scale(1.03);
-  background-color: coral;
+  background-color: var(--primary-bg-color);
+  color: white;
 }
 
-.alert-paragraph {
-  color: #e84435;
-  /* width: 70%; */
-  padding: 1%;
-  margin: 1rem auto;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
 
 .form-inner-container {
   display: flex;
