@@ -1,7 +1,7 @@
 import axios from "axios"
 import "./App.css"
-import Search from "./Search"
-import Main from "./Main"
+import Search from "./components/Search"
+import Main from "./components/Main"
 
 // import image from "./img/4.jpg"
 
