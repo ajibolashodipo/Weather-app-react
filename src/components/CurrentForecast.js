@@ -8,7 +8,7 @@ export class CurrentForecast extends Component {
     return (
       <div className="Current Current-grid lone-grid-item">
         <p>Today</p>
-        <h1>{current.temp} &#8451;</h1>
+        <h1>{Math.round(current.temp)} &#8451;</h1>
         <p>RealFeel: {Math.round(current.feels_like)} &#8451;</p>
         <img
           src={`http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`}
