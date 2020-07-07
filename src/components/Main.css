@@ -37,9 +37,9 @@ img {
   transition: all 400ms ease-in-out;
 }
 
-.lone-grid-item:hover {
+/* .lone-grid-item:hover {
   transform: scale(1.05);
-}
+} */
 
 .Current {
   padding: 3% 5%;
