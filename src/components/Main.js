@@ -20,7 +20,7 @@ export class Main extends Component {
     if (state.loading) {
       return (
         <div className="">
-          <h1>Fetching Data</h1>
+          <h1>Fetching Weather Data</h1>
           <Loading />
         </div>
       )
