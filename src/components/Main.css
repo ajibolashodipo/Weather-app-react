@@ -26,10 +26,6 @@ img {
   transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.alert-paragraph.more {
-  transform: scale(1);
-}
-
 .lone-grid-item {
   font-size: 1.2rem;
   text-align: center;
@@ -139,6 +135,11 @@ img {
     column-gap: 20px;
 
     height: 100%;
+  }
+
+  .alert-paragraph {
+    margin: 15% auto;
+    font-size: 1rem;
   }
 
   .Hourly {
