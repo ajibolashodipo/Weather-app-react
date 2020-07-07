@@ -104,19 +104,19 @@
 .earth-orbit {
   width: 165px;
   height: 165px;
-  -webkit-animation: spin 4s linear 0s infinite;
+  animation: spin 4s linear 0s infinite;
 }
 
 .venus-orbit {
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 2s linear 0s infinite;
+  animation: spin 2s linear 0s infinite;
 }
 
 .mercury-orbit {
   width: 90px;
   height: 90px;
-  -webkit-animation: spin 1s linear 0s infinite;
+  animation: spin 1s linear 0s infinite;
 }
 
 .planet {
