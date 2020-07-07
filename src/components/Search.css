@@ -3,7 +3,7 @@
 }
 
 .Search-input {
-  padding: 1%;
+  padding: 1.01%;
   width: 50%;
   border-radius: 5px;
   outline: none;
@@ -19,7 +19,7 @@ label {
 }
 
 button {
-  padding: 1%;
+  padding: 1.01%;
   width: 15%;
   border-radius: 5px;
   outline: none;

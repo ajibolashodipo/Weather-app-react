@@ -26,10 +26,10 @@ body {
   color: white;
   background-color: cornflowerblue;
   font-family: "Abel", sans-serif;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://res.cloudinary.com/dlly5f002/image/upload/q_auto,f_auto/v1594142118/1_dbgq2v.jpg"); */
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../src/img/2.jpg");
+    url("https://res.cloudinary.com/dlly5f002/image/upload/q_auto,f_auto/v1594158046/2_c0rh0v.jpg");
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../src/img/2.jpg"); */
 
   background-repeat: no-repeat;
   -webkit-background-attachment: fixed;
