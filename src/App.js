@@ -81,7 +81,7 @@ class App extends Component {
         this.state.searchParam
       )}.json?access_token=${process.env.REACT_APP_GEOCODE_API_KEY}&limit=1`
     )
-    console.log(res)
+
     if (res.data.features.length) {
       this.setState(
         {
@@ -148,7 +148,6 @@ class App extends Component {
         this.setState({ loading: false, showData: true })
       }
     )
-    console.log(res.data)
   }
   componentDidMount() {
     this.getDefaultIP()
