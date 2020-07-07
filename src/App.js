@@ -25,16 +25,17 @@ class App extends Component {
     onLoadLocation: "",
     defaultLatitude: 6.4474,
     defaultLongitude: 3.3903,
-    defaultLocation: "Lagos",
+    defaultLocation: "Lagos, Nigeria",
     searchErrorMessage: "",
     browserLoading: true
   }
 
   getDefaultIP = async () => {
-    let trip = await axios.get("https://api.ipify.org/?format=json")
-    let tripIP = trip.data.ip
-    let res = await axios.get(`https://ipapi.co/${tripIP}/json/`)
     try {
+      let trip = await axios.get("https://api.ipify.org/?format=json")
+      let tripIP = trip.data.ip
+      let res = await axios.get(`https://ipapi.co/${tripIP}/json/`)
+
       if (res && res.status === 200) {
         this.setState(
           {
