@@ -36,18 +36,20 @@ class App extends Component {
       let tripIP = trip.data.ip
       let res = await axios.get(`https://ipapi.co/${tripIP}/json/`)
 
-      if (res && res.status === 200) {
-        this.setState(
-          {
-            geoCodeLongitude: res.data.longitude,
-            geoCodeLatitude: res.data.latitude,
-            geoCodeLocation: res.data.city
-          },
-          () => {
-            this.getPublicIPWeatherData()
-          }
-        )
+      if (!res.data && !trip.data) {
+        throw new Error("An error occurred")
       }
+
+      this.setState(
+        {
+          geoCodeLongitude: res.data.longitude,
+          geoCodeLatitude: res.data.latitude,
+          geoCodeLocation: res.data.city
+        },
+        () => {
+          this.getPublicIPWeatherData()
+        }
+      )
     } catch (error) {
       //resort to defaults
       this.setState(
