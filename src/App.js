@@ -31,14 +31,16 @@ class App extends Component {
   }
 
   getDefaultIP = async () => {
-    let res = await axios.get("http://ip-api.com/json")
+    let trip = await axios.get("https://api.ipify.org/?format=json")
+    let tripIP = trip.data.ip
+    let res = await axios.get(`https://ipapi.co/${tripIP}/json/`)
     try {
       if (res && res.status === 200) {
         this.setState(
           {
-            geoCodeLongitude: res.data.lon,
-            geoCodeLatitude: res.data.lat,
-            geoCodeLocation: res.data.regionName
+            geoCodeLongitude: res.data.longitude,
+            geoCodeLatitude: res.data.latitude,
+            geoCodeLocation: res.data.city
           },
           () => {
             this.getPublicIPWeatherData()
