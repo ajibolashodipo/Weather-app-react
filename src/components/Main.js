@@ -29,8 +29,12 @@ export class Main extends Component {
     //for unfound locations
     if (state.searchErrorMessage.length) {
       return (
-        <div className="alert-paragraph">
-          <h3>{state.searchErrorMessage}</h3>
+        <div className="body-container">
+          <div className="main-container">
+            <div className="alert-paragraph">
+              <h3>{state.searchErrorMessage}</h3>
+            </div>
+          </div>
         </div>
       )
     }
