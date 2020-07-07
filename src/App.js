@@ -35,7 +35,7 @@ class App extends Component {
       let trip = await axios.get("https://api.ipify.org/?format=json")
       let tripIP = trip.data.ip
       let res = await axios.get(`https://ipapi.co/${tripIP}/json/`)
-
+      //random
       if (!res.data && !trip.data) {
         throw new Error("An error occurred")
       }
