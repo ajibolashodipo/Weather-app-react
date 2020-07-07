@@ -40,7 +40,7 @@ class Search extends Component {
               placeholder="Type in a location"
               onChange={this.handleChange}
               value={this.state.searchParam}
-              className="Search-form"
+              className="Search-input"
             />
             <button>Search</button>
           </div>

@@ -3,6 +3,7 @@ import "./App.css"
 import Search from "./components/Search"
 import Main from "./components/Main"
 import Footer from "./components/Footer"
+import BrowserLoader from "./components/BrowserLoader"
 
 // import image from "./img/4.jpg"
 
@@ -25,7 +26,8 @@ class App extends Component {
     defaultLatitude: 6.4474,
     defaultLongitude: 3.3903,
     defaultLocation: "Lagos",
-    searchErrorMessage: ""
+    searchErrorMessage: "",
+    browserLoading: true
   }
 
   getDefaultIP = async () => {
@@ -114,7 +116,7 @@ class App extends Component {
         weatherDataDaily: res.data.daily
       },
       () => {
-        this.setState({ loading: false, showData: true })
+        this.setState({ browserLoading: false, loading: false, showData: true })
       }
     )
   }
@@ -128,7 +130,7 @@ class App extends Component {
       }
     )
 
-    //regular api
+    // regular api
     // let res = await axios.get(
     //   `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
     //   {
@@ -149,11 +151,14 @@ class App extends Component {
     console.log(res.data)
   }
   componentDidMount() {
-    // this.getDefaultIP()
+    this.getDefaultIP()
+    this.setState({})
   }
 
   render() {
-    return (
+    return this.state.browserLoading ? (
+      <BrowserLoader />
+    ) : (
       <div className="body-container">
         <div style={{}} className="main-container">
           <h1>Weather Wizard</h1>

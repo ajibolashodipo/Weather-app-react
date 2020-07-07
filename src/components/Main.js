@@ -18,7 +18,12 @@ export class Main extends Component {
     const daily = this.props.state.weatherDataDaily
 
     if (state.loading) {
-      return <Loading />
+      return (
+        <div className="">
+          <h1>Fetching Data</h1>
+          <Loading />
+        </div>
+      )
     }
 
     //for unfound locations

@@ -1,7 +1,7 @@
 :root {
   --primary-bg-color: #4f6352;
   /* --primary-bg-color: #bd6ee6; */
-  --secondary-bg-color: #876a96;
+  --secondary-bg-color: #2f4032;
   --tertiary-bg-color: #d7c1e0;
   --quartenary-bg-color: #edeff2;
   --cinq-bg-color: #e6ae73;
@@ -40,16 +40,19 @@ body {
   flex-direction: column;
   height: 100vh;
   margin: auto;
-  /* width: 100%; */
-
-  /* background-color: #b5b8e8; */
 }
 
 .main-container {
   width: 100%;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   flex: 1 0 auto;
-  /* background-color: var(--primary-bg-color); */
   text-align: center;
   transform: scale(0.88);
+}
+
+@media only screen and (max-width: 720px) {
+  .main-container {
+    margin: 1% auto 1.5%;
+    transform: scale(0.92);
+  }
 }

@@ -5,7 +5,6 @@ export class Loading extends Component {
   render() {
     return (
       <div className="Loading-container">
-        <h1>Loading ...</h1>
         <div class="spinner-box">
           <div class="solar-system">
             <div class="earth-orbit orbit">

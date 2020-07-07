@@ -1,0 +1,24 @@
+.browser-loader {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--primary-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.browser-loader .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-gif {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  /* display: block; */
+}

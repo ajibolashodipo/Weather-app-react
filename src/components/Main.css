@@ -62,13 +62,9 @@ img {
 }
 
 .Hourly {
-  /* background-color: cyan; */
   padding: 15%;
   border-radius: 15px;
   margin: 25% 0;
-  /* border: 1px solid white; */
-  /* border-top: 1px solid white;
-  border-bottom: 1px solid white; */
 }
 
 .Daily {
@@ -137,4 +133,26 @@ img {
 .Daily-grid-7 {
   grid-column: 1/11;
   grid-row: 12/13;
+}
+
+@media only screen and (max-width: 720px) {
+  .Grid-container {
+    margin: 2.5% auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(12, minmax(50px, auto));
+    row-gap: 10px;
+    column-gap: 20px;
+
+    height: 100%;
+  }
+
+  .Hourly {
+    font-size: 0.95rem;
+  }
+
+  .Daily {
+    font-size: 0.92rem;
+  }
 }

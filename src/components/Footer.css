@@ -26,13 +26,13 @@
   /* color: black; */
 }
 
-/* @media only screen and (max-width: 576px) {
+@media only screen and (max-width: 576px) {
   .footer {
     font-size: 1rem;
   }
 
-  .footer .social-media .fab {
+  .footer .social-media .icon {
     margin-left: 1rem;
     color: var(--quartenary-bg-color);
   }
-} */
+}
