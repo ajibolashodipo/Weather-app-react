@@ -32,8 +32,14 @@ body {
     url("../src/img/2.jpg");
 
   background-repeat: no-repeat;
+  -webkit-background-attachment: fixed;
+  -moz-background-attachment: fixed;
+  -o-background-attachment: fixed;
   background-attachment: fixed;
   background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
