@@ -122,21 +122,13 @@ class App extends Component {
   }
 
   getWeatherData = async () => {
-    // JSON BIN
+    // sends request to openweather api
     let res = await axios.get(
-      `https://corsanywhere-jibola.herokuapp.com/api.jsonbin.io/b/5f00dff17f16b71d48ab3a3d`,
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
       {
         headers: { Accept: "application/json" }
       }
     )
-
-    // regular api
-    // let res = await axios.get(
-    //   `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
-    //   {
-    //     headers: { Accept: "application/json" }
-    //   }
-    // )
 
     this.setState(
       {
