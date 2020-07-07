@@ -7,7 +7,7 @@ import BrowserLoader from "./components/BrowserLoader"
 
 // import image from "./img/4.jpg"
 
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 
 class App extends Component {
   state = {
@@ -155,14 +155,14 @@ class App extends Component {
     return this.state.browserLoading ? (
       <BrowserLoader />
     ) : (
-      <div className="body-container">
-        <div style={{}} className="main-container">
+      <Fragment>
+        <div className="main-container">
           <h1>Weather Wizard</h1>
           <Search getLocation={this.getLocation} />
           <Main state={this.state} />
         </div>
         <Footer />
-      </div>
+      </Fragment>
     )
   }
 }
