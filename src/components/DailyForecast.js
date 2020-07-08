@@ -7,7 +7,7 @@ export class DailyForecast extends Component {
     return (
       <div className={`Daily Daily-grid-${this.props.id} lone-grid-item`}>
         <p>{time}</p>
-        <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="" />
+        <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="" />
         <p>{desc}</p>
         <p>
           {Math.round(max)} &#8451; / {Math.round(min)} &#8451;

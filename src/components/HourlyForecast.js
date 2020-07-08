@@ -8,7 +8,7 @@ export class HourlyForecast extends Component {
         <p>{this.props.time}</p>
 
         <img
-          src={`http://openweathermap.org/img/wn/${this.props.icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${this.props.icon}@2x.png`}
           alt=""
         />
 
