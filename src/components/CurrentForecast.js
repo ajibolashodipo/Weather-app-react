@@ -11,7 +11,7 @@ export class CurrentForecast extends Component {
         <h1>{Math.round(current.temp)} &#8451;</h1>
         <p>RealFeel: {Math.round(current.feels_like)} &#8451;</p>
         <img
-          src={`https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`}
+          src={`http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`}
           alt=""
         />
 
