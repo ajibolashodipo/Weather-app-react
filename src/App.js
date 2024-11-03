@@ -108,7 +108,7 @@ class App extends Component {
 
   getPublicIPWeatherData = async () => {
     let res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
       {
         headers: { Accept: "application/json" }
       }
@@ -129,7 +129,7 @@ class App extends Component {
   getWeatherData = async () => {
     // sends request to openweather api
     let res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${this.state.geoCodeLatitude}&lon=${this.state.geoCodeLongitude}&units=metric&appid=${process.env.REACT_APP_FIRST_WEATHER_API_KEY}`,
       {
         headers: { Accept: "application/json" }
       }
